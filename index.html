@@ -40,23 +40,25 @@
         }
 
         .logo {
-            font-size: 16px;
+            font-size: 19px; /* Increased font size */
             font-weight: bold;
             letter-spacing: -0.5px;
             text-transform: lowercase;
             text-decoration: none;
             color: #000;
             display: block;
+            line-height: 1.1;
         }
 
         .subtext {
-            font-size: 12px;
-            color: #555555;
-            text-transform: lowercase;
-            margin-top: 1px;
+            font-size: 13px; /* Proportionally increased size */
+            color: #000000; /* Made pure black to match upper text */
+            text-transform: uppercase; /* Enforced ALL CAPS */
+            margin-top: 4px;
             display: block;
-            /* Added letter-spacing so 'sandbox' stretches to balance 'harshat's' */
-            letter-spacing: 1.8px; 
+            /* Perfectly tracked out to align edges with "harshat's" */
+            letter-spacing: 2.7px; 
+            line-height: 1.1;
         }
 
         /* --- Feed Layout --- */
@@ -191,7 +193,6 @@
     <header>
         <div class="brand-container">
             <a href="#" class="logo">harshat's</a>
-            <!-- Removed the "a " context here -->
             <span class="subtext">sandbox</span>
         </div>
     </header>
