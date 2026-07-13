@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>pgLang Inspired Feed</title>
+    <title>harshat's sandbox</title>
     <style>
-        /* --- Core Reset & pgLang Specific Styling --- */
+        /* --- Core Reset & Custom Styling --- */
         * {
             margin: 0;
             padding: 0;
@@ -13,22 +13,26 @@
         }
 
         body {
-            background-color: #D6D6D6; /* Authentic muted pgLang grey background */
+            background-color: #D6D6D6; /* pgLang muted grey */
             color: #000000;
-            font-family: "Times New Roman", Times, serif; /* Pure raw serif typography */
+            font-family: "Times New Roman", Times, serif;
             font-size: 14.5px;
             line-height: 1.4;
             padding: 40px 50px;
             letter-spacing: -0.2px;
             -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* --- Header Navigation Elements --- */
+        /* --- Header: Left Aligned Title + Subtext --- */
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             margin-bottom: 70px;
+        }
+
+        .brand-container {
+            display: inline-block;
         }
 
         .logo {
@@ -38,36 +42,35 @@
             text-transform: lowercase;
             text-decoration: none;
             color: #000;
+            display: block;
         }
 
-        .nav-controls {
-            display: flex;
-            gap: 15px;
-            font-size: 15px;
-            color: #000;
+        .subtext {
+            font-size: 12px;
+            color: #555555;
+            text-transform: lowercase;
+            margin-top: 2px;
+            display: block;
         }
 
-        .nav-controls span {
-            cursor: pointer;
-        }
-
-        /* --- Pure pgLang Alignment Grid --- */
+        /* --- Feed Layout --- */
         .timeline {
             max-width: 1400px;
             margin-top: 20px;
+            flex-grow: 1; /* Pushes footer down */
         }
 
         .row {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 22px; /* Authentic spacing between items */
+            margin-bottom: 22px;
         }
 
-        /* Fixed-width column ensures all titles line up mathematically straight */
+        /* Adjusted width to beautifully accommodate the new DD.MM.YYYY format */
         .date {
-            width: 110px; 
+            width: 130px; 
             flex-shrink: 0;
-            color: #6a6a6a; /* Muted date look */
+            color: #6a6a6a;
             font-size: 13.5px;
         }
 
@@ -93,17 +96,16 @@
             text-decoration: underline;
         }
 
-        /* --- Hidden Dropdown / Accordion Layout --- */
+        /* --- Hidden Dropdown Layout --- */
         .collapsible-essay {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1), margin 0.3s ease;
-            max-width: 680px; /* Limits reading pane so text doesn't stretch across massive screens */
+            max-width: 680px;
         }
 
-        /* Triggers the smooth expand effect */
         .collapsible-essay.expanded {
-            max-height: 4000px; /* High threshold to handle long texts seamlessly */
+            max-height: 4000px;
             margin-top: 14px;
             margin-bottom: 28px;
         }
@@ -112,7 +114,17 @@
             font-size: 15.5px;
             line-height: 1.6;
             color: #111111;
-            white-space: pre-line; /* Essential: keeps paragraphs looking exactly how you write them */
+            white-space: pre-line;
+        }
+
+        /* --- Footer Alignment --- */
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            text-align: right;
+            font-size: 11px;
+            color: #6a6a6a;
+            text-transform: lowercase;
         }
 
         /* Mobile Optimization */
@@ -121,6 +133,7 @@
             header { margin-bottom: 40px; }
             .row { flex-direction: column; margin-bottom: 25px; }
             .date { margin-bottom: 3px; }
+            footer { text-align: left; }
         }
     </style>
 </head>
@@ -128,11 +141,9 @@
 
     <!-- Header Grid Elements -->
     <header>
-        <a href="#" class="logo">pgLang</a>
-        <div class="nav-controls">
-            <span>○</span>
-            <span>△</span>
-            <span>+</span>
+        <div class="brand-container">
+            <a href="#" class="logo">harshat's</a>
+            <span class="subtext">a sandbox</span>
         </div>
     </header>
 
@@ -141,16 +152,14 @@
 
         <!-- WRITING ITEM #1 -->
         <div class="row">
-            <div class="date">26-07-13</div>
+            <div class="date">13.07.2026</div>
             <div class="content-area">
-                <button class="essay-trigger toggle-btn">Good Flirts.</button>
+                <button class="essay-trigger toggle-btn">good flirts.</button>
                 <div class="collapsible-essay">
                     <div class="essay-text">
-                        This is where your short stories, personal journals, or essays will drop down smoothly. 
+                        this is where your short stories, personal journals, legal entries, or essays will drop down smoothly. 
 
-                        Because of the clean 'pre-line' formatting, you can press enter to separate paragraphs, and the web browser will perfectly preserve your formatting. 
-
-                        This layout handles everything seamlessly—whether you upload a fast 2-line raw thought, a complete piece of creative fiction, or a rigorous legal breakdown.
+                        because of the clean 'pre-line' formatting, you can press enter to separate paragraphs, and the web browser will perfectly preserve your formatting.
                     </div>
                 </div>
             </div>
@@ -158,35 +167,25 @@
 
         <!-- WRITING ITEM #2 -->
         <div class="row">
-            <div class="date">26-06-20</div>
+            <div class="date">20.06.2026</div>
             <div class="content-area">
-                <button class="essay-trigger toggle-btn">Legal Analysis on Digital Expression.</button>
+                <button class="essay-trigger toggle-btn">legal analysis on digital expression.</button>
                 <div class="collapsible-essay">
                     <div class="essay-text">
-                        [Case Study Introduction Here]
+                        [case study introduction here]
                         
-                        By using standard Times New Roman formatting against this sharp grey background, your legal entries will retain a highly analytical, raw, and professional appearance while completely matching the artistic branding of the site.
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- WRITING ITEM #3 -->
-        <div class="row">
-            <div class="date">26-05-15</div>
-            <div class="content-area">
-                <button class="essay-trigger toggle-btn">Birds & the Bees.</button>
-                <div class="collapsible-essay">
-                    <div class="essay-text">
-                        A clean place for creative short stories. 
-                        
-                        No extra visual noise. No sidebars. Just your words expanding straight down into the interface, demanding the reader’s undivided attention.
+                        by using standard times new roman formatting against this sharp grey background, your legal entries will retain a highly analytical, raw, and professional appearance while completely matching the artistic branding of the site.
                     </div>
                 </div>
             </div>
         </div>
 
     </main>
+
+    <!-- Footer Area -->
+    <footer>
+        © 2026 harshat. all rights reserved. public domain licensing applies to shared items.
+    </footer>
 
     <!-- The underlying logic handling the smooth expansion -->
     <script>
