@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pgLang Inspired Feed</title>
+    <style>
+        /* --- Core Reset & pgLang Specific Styling --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #D6D6D6; /* Authentic muted pgLang grey background */
+            color: #000000;
+            font-family: "Times New Roman", Times, serif; /* Pure raw serif typography */
+            font-size: 14.5px;
+            line-height: 1.4;
+            padding: 40px 50px;
+            letter-spacing: -0.2px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- Header Navigation Elements --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 70px;
+        }
+
+        .logo {
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: -0.5px;
+            text-transform: lowercase;
+            text-decoration: none;
+            color: #000;
+        }
+
+        .nav-controls {
+            display: flex;
+            gap: 15px;
+            font-size: 15px;
+            color: #000;
+        }
+
+        .nav-controls span {
+            cursor: pointer;
+        }
+
+        /* --- Pure pgLang Alignment Grid --- */
+        .timeline {
+            max-width: 1400px;
+            margin-top: 20px;
+        }
+
+        .row {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 22px; /* Authentic spacing between items */
+        }
+
+        /* Fixed-width column ensures all titles line up mathematically straight */
+        .date {
+            width: 110px; 
+            flex-shrink: 0;
+            color: #6a6a6a; /* Muted date look */
+            font-size: 13.5px;
+        }
+
+        .content-area {
+            flex-grow: 1;
+        }
+
+        /* --- Link Setup --- */
+        .essay-trigger {
+            color: #000000;
+            text-decoration: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: inherit;
+            font-size: inherit;
+            text-align: left;
+            padding: 0;
+            display: inline;
+        }
+
+        .essay-trigger:hover {
+            text-decoration: underline;
+        }
+
+        /* --- Hidden Dropdown / Accordion Layout --- */
+        .collapsible-essay {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1), margin 0.3s ease;
+            max-width: 680px; /* Limits reading pane so text doesn't stretch across massive screens */
+        }
+
+        /* Triggers the smooth expand effect */
+        .collapsible-essay.expanded {
+            max-height: 4000px; /* High threshold to handle long texts seamlessly */
+            margin-top: 14px;
+            margin-bottom: 28px;
+        }
+
+        .essay-text {
+            font-size: 15.5px;
+            line-height: 1.6;
+            color: #111111;
+            white-space: pre-line; /* Essential: keeps paragraphs looking exactly how you write them */
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 600px) {
+            body { padding: 25px 20px; }
+            header { margin-bottom: 40px; }
+            .row { flex-direction: column; margin-bottom: 25px; }
+            .date { margin-bottom: 3px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Grid Elements -->
+    <header>
+        <a href="#" class="logo">pgLang</a>
+        <div class="nav-controls">
+            <span>○</span>
+            <span>△</span>
+            <span>+</span>
+        </div>
+    </header>
+
+    <!-- The Essay / Story Feed Container -->
+    <main class="timeline">
+
+        <!-- WRITING ITEM #1 -->
+        <div class="row">
+            <div class="date">26-07-13</div>
+            <div class="content-area">
+                <button class="essay-trigger toggle-btn">Good Flirts.</button>
+                <div class="collapsible-essay">
+                    <div class="essay-text">
+                        This is where your short stories, personal journals, or essays will drop down smoothly. 
+
+                        Because of the clean 'pre-line' formatting, you can press enter to separate paragraphs, and the web browser will perfectly preserve your formatting. 
+
+                        This layout handles everything seamlessly—whether you upload a fast 2-line raw thought, a complete piece of creative fiction, or a rigorous legal breakdown.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- WRITING ITEM #2 -->
+        <div class="row">
+            <div class="date">26-06-20</div>
+            <div class="content-area">
+                <button class="essay-trigger toggle-btn">Legal Analysis on Digital Expression.</button>
+                <div class="collapsible-essay">
+                    <div class="essay-text">
+                        [Case Study Introduction Here]
+                        
+                        By using standard Times New Roman formatting against this sharp grey background, your legal entries will retain a highly analytical, raw, and professional appearance while completely matching the artistic branding of the site.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- WRITING ITEM #3 -->
+        <div class="row">
+            <div class="date">26-05-15</div>
+            <div class="content-area">
+                <button class="essay-trigger toggle-btn">Birds & the Bees.</button>
+                <div class="collapsible-essay">
+                    <div class="essay-text">
+                        A clean place for creative short stories. 
+                        
+                        No extra visual noise. No sidebars. Just your words expanding straight down into the interface, demanding the reader’s undivided attention.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- The underlying logic handling the smooth expansion -->
+    <script>
+        document.querySelectorAll('.toggle-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const collapsible = button.nextElementSibling;
+                collapsible.classList.toggle('expanded');
+            });
+        });
+    </script>
+
+</body>
+</html>
